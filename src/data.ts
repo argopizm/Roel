@@ -13,7 +13,7 @@ export const services: Service[] = [
     title: "Kurumsal Web & Tasarım",
     short: "Marka odaklı, hızlı, yönetilebilir",
     desc: "Ölçeklenebilir, hızlı ve kolay yönetilebilir kurumsal web siteleri. Özel UI/UX, SEO, yönetim paneli ve Cloudflare CDN.",
-    accent: "#8a5df1",
+    accent: "#673de6",
     icon: `<rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 9h18M8 21h8"/>`,
   },
   {
@@ -21,7 +21,7 @@ export const services: Service[] = [
     title: "E-Ticaret & B2B",
     short: "Yüksek dönüşümlü mağazalar",
     desc: "Yüksek dönüşüm oranlı online mağazalar ve B2B sipariş sistemleri. Ödeme, kargo ve muhasebe entegrasyonları.",
-    accent: "#ff9e64",
+    accent: "#e8590c",
     icon: `<path d="M3 4h2l2.5 11h11L21 7H7"/><circle cx="9" cy="20" r="1.5"/><circle cx="17" cy="20" r="1.5"/>`,
   },
   {
@@ -29,7 +29,7 @@ export const services: Service[] = [
     title: "Blog & Haber Platformu",
     short: "Yüksek trafik içerik mimarisi",
     desc: "Milyonlarca görüntülemeye hazır içerik platformları. Editör panelleri, kategori yapısı ve edge önbellekleme.",
-    accent: "#58d7bd",
+    accent: "#0e9f8a",
     icon: `<path d="M4 5h16v14H4zM8 9h8M8 13h8M8 17h5"/>`,
   },
   {
@@ -37,7 +37,7 @@ export const services: Service[] = [
     title: "UI / UX Tasarım",
     short: "Kullanıcı odaklı arayüz sistemleri",
     desc: "Erişilebilir, dönüşüm odaklı ekranlar ve ölçeklenebilir tasarım sistemleri. Prototipten koda.",
-    accent: "#f092c7",
+    accent: "#d6336c",
     icon: `<circle cx="12" cy="12" r="3"/><path d="M4 12h3M17 12h3M12 4v3M12 17v3"/>`,
   },
   {
@@ -45,7 +45,7 @@ export const services: Service[] = [
     title: "Özel Yazılım Geliştirme",
     short: "İş akışınıza özel sistemler",
     desc: "İş süreçlerinize göre tasarlanmış web sistemleri; yönetim panelleri, backend servisleri ve raporlama.",
-    accent: "#5ea9ff",
+    accent: "#1c7ed6",
     icon: `<path d="M8 6l-5 6 5 6M16 6l5 6-5 6M14 4l-4 16"/>`,
   },
   {
@@ -53,7 +53,7 @@ export const services: Service[] = [
     title: "Platform & SaaS",
     short: "Çok kiracılı abonelik ürünleri",
     desc: "Ölçeklenebilir, çok kullanıcılı abonelik ürünleri. Üyelik, abonelik, rol yönetimi ve multi-tenant mimari.",
-    accent: "#b98cff",
+    accent: "#7048e8",
     icon: `<rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/>`,
   },
   {
@@ -61,7 +61,7 @@ export const services: Service[] = [
     title: "Mobil Uygulama",
     short: "Native iOS & Android",
     desc: "Web sistemleriyle senkron, bildirim destekli, akıcı native deneyimler.",
-    accent: "#5ed5ee",
+    accent: "#0c8599",
     icon: `<rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/>`,
   },
   {
@@ -69,7 +69,7 @@ export const services: Service[] = [
     title: "Masaüstü Uygulama",
     short: "Windows & macOS iş araçları",
     desc: "Ofis içi operasyonlar için çevrimdışı çalışabilen, hızlı masaüstü yazılımları.",
-    accent: "#9d79ff",
+    accent: "#5f3dc4",
     icon: `<rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 21h8M12 17v4"/>`,
   },
   {
@@ -77,7 +77,7 @@ export const services: Service[] = [
     title: "Cloudflare & Edge CDN",
     short: "Önbellek, WAF, DDoS koruması",
     desc: "300+ edge noktasında önbellekleme, WAF kuralları, DDoS koruması ve performans iyileştirmeleri.",
-    accent: "#f6a04d",
+    accent: "#d9690f",
     icon: `<path d="M7 18a4 4 0 0 1-.6-7.95A6 6 0 0 1 18 8.5a4.5 4.5 0 0 1-.5 9H7z"/>`,
   },
   {
@@ -85,7 +85,7 @@ export const services: Service[] = [
     title: "Cloud & DevOps",
     short: "Sunucu mimarisi, CI/CD",
     desc: "Trafik büyümesine hazır sunucu mimarisi, konteyner altyapısı ve otomatik dağıtım hatları.",
-    accent: "#71b8ff",
+    accent: "#2b6cb0",
     icon: `<rect x="3" y="4" width="18" height="6" rx="1.5"/><rect x="3" y="14" width="18" height="6" rx="1.5"/><path d="M7 7h.01M7 17h.01"/>`,
   },
   {
@@ -93,7 +93,7 @@ export const services: Service[] = [
     title: "API & Entegrasyon",
     short: "ERP, CRM, ödeme, kargo",
     desc: "ERP, CRM, ödeme, kargo ve üçüncü parti servislerle güvenli, izlenebilir veri akışı.",
-    accent: "#52d399",
+    accent: "#0b8043",
     icon: `<path d="M10 14a4 4 0 0 1 0-5.6l2-2a4 4 0 0 1 5.6 5.6l-1 1M14 10a4 4 0 0 1 0 5.6l-2 2a4 4 0 0 1-5.6-5.6l1-1"/>`,
   },
   {
@@ -101,7 +101,7 @@ export const services: Service[] = [
     title: "Yapay Zekâ & Otomasyon",
     short: "LLM ajanları, iş otomasyonu",
     desc: "Operasyon, müşteri yanıtı ve veri işleme için LLM tabanlı ajanlar ve otomasyon akışları.",
-    accent: "#c58aff",
+    accent: "#9c36b5",
     icon: `<path d="M12 3l1.8 4.6L18 9l-4.2 1.4L12 15l-1.8-4.6L6 9l4.2-1.4zM5 17l.8 2 2 .8-2 .8L5 22l-.8-1.4-2-.8 2-.8zM19 15l.6 1.6 1.6.6-1.6.6L19 19l-.6-1.2-1.6-.6 1.6-.6z"/>`,
   },
   {
@@ -109,7 +109,7 @@ export const services: Service[] = [
     title: "Teknik SEO",
     short: "Core Web Vitals, görünürlük",
     desc: "Core Web Vitals, yapısal veri, tarama bütçesi ve arama görünürlüğünde ölçülebilir iyileştirme.",
-    accent: "#66d5a7",
+    accent: "#2f9e44",
     icon: `<circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5M8 11l2 2 4-4"/>`,
   },
 ];

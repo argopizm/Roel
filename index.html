@@ -13,7 +13,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap"
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;1,9..40,400&display=swap"
       rel="stylesheet"
     />
     <meta property="og:title" content="Roel Cloud — Dijital fikriniz, gerçek bir deneyime dönüşsün." />
@@ -42,54 +42,60 @@
     </div>
 
     <canvas id="bg-canvas" class="bg-canvas" aria-hidden="true"></canvas>
-    <div class="bg-grain" aria-hidden="true"></div>
-    <div class="cursor-glow" id="cursor-glow" aria-hidden="true"></div>
 
     <a class="skip-link" href="#main">İçeriğe atla</a>
 
-    <!-- ===== Creative header: floating logo capsule + command orb + radial menu ===== -->
-    <header class="site-header" id="site-header">
-      <a class="logo-capsule" href="#hero" aria-label="Roel Cloud — ana sayfa">
-        <span class="logo-capsule__mark">
-          <svg viewBox="0 0 136 96" fill="none" aria-hidden="true">
-            <defs>
-              <linearGradient id="lg-cloud" x1="16" y1="80" x2="116" y2="18" gradientUnits="userSpaceOnUse">
-                <stop offset="0" stop-color="#c3b4ff" />
-                <stop offset="0.5" stop-color="#8a5df1" />
-                <stop offset="1" stop-color="#5ed5ee" />
-              </linearGradient>
-            </defs>
-            <path
-              d="M36 78H100C113.255 78 124 67.2548 124 54C124 41.4567 114.371 31.1636 102.095 30.0897C97.8104 17.8075 86.1338 9 72.4 9C55.4391 9 41.6177 22.3935 40.9283 39.1815C40.2921 39.0622 39.6368 39 38.9667 39C25.178 39 14 47.7304 14 58.5C14 69.2696 23.8497 78 36 78Z"
-              stroke="url(#lg-cloud)"
-              stroke-width="10.5"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-          </svg>
-        </span>
-        <span class="logo-capsule__text">Roel<em>Cloud</em></span>
-        <span class="logo-capsule__status"><i></i> edge online</span>
-      </a>
+    <!-- ===== Promo bar ===== -->
+    <div class="promo" id="promo" role="region" aria-label="Duyurular">
+      <div class="promo__track" aria-hidden="true">
+        <span>YENİ NESİL Cloudflare Edge &amp; Yüksek Performanslı Web Mimarisi</span>
+        <span>PageSpeed 98+ Performans &amp; %100 Teknik SEO Garantisi</span>
+        <span>Ücretsiz Teknik Keşif ve Mimari Planlama Görüşmesi</span>
+        <span>7/24 Kesintisiz Bulut İzleme &amp; WAF Güvenlik Katmanı</span>
+        <span>YENİ NESİL Cloudflare Edge &amp; Yüksek Performanslı Web Mimarisi</span>
+        <span>PageSpeed 98+ Performans &amp; %100 Teknik SEO Garantisi</span>
+        <span>Ücretsiz Teknik Keşif ve Mimari Planlama Görüşmesi</span>
+        <span>7/24 Kesintisiz Bulut İzleme &amp; WAF Güvenlik Katmanı</span>
+      </div>
+      <button class="promo__close" id="promo-close" aria-label="Duyuru şeridini kapat">✕</button>
+    </div>
 
-      <div class="orb-wrap">
-        <button class="orb" id="orb" aria-expanded="false" aria-controls="radial-menu" aria-label="Menüyü aç">
-          <span class="orb__core"></span>
-          <span class="orb__ring"></span>
-          <span class="orb__ring orb__ring--2"></span>
-          <span class="orb__label">menü</span>
-        </button>
-        <nav class="radial" id="radial-menu" aria-label="Site menüsü" hidden>
-          <a class="radial__item" href="#hizmetler" data-i="0"><small>01</small>Hizmetler</a>
-          <a class="radial__item" href="#yaklasim" data-i="1"><small>02</small>Yaklaşım</a>
-          <a class="radial__item" href="#surec" data-i="2"><small>03</small>Süreç</a>
-          <a class="radial__item" href="#modeller" data-i="3"><small>04</small>Modeller</a>
-          <a class="radial__item" href="#yorumlar" data-i="4"><small>05</small>Yorumlar</a>
-          <a class="radial__item" href="#iletisim" data-i="5"><small>06</small>İletişim</a>
+    <!-- ===== Header ===== -->
+    <header class="site-header" id="site-header">
+      <div class="container site-header__inner">
+        <a class="brand" href="#hero" aria-label="Roel Cloud — ana sayfa">
+          <span class="brand__mark">
+            <svg viewBox="0 0 136 96" fill="none" aria-hidden="true">
+              <defs>
+                <linearGradient id="lg-cloud" x1="16" y1="80" x2="116" y2="18" gradientUnits="userSpaceOnUse">
+                  <stop offset="0" stop-color="#a892ff" />
+                  <stop offset="0.45" stop-color="#673de6" />
+                  <stop offset="1" stop-color="#4b22c4" />
+                </linearGradient>
+              </defs>
+              <path
+                d="M36 78H100C113.255 78 124 67.2548 124 54C124 41.4567 114.371 31.1636 102.095 30.0897C97.8104 17.8075 86.1338 9 72.4 9C55.4391 9 41.6177 22.3935 40.9283 39.1815C40.2921 39.0622 39.6368 39 38.9667 39C25.178 39 14 47.7304 14 58.5C14 69.2696 23.8497 78 36 78Z"
+                stroke="url(#lg-cloud)"
+                stroke-width="10.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </span>
+          <span class="brand__word">Roel<em>Cloud</em></span>
+        </a>
+
+        <nav class="nav" aria-label="Site menüsü">
+          <div class="nav__links" id="nav-links">
+            <a href="#hizmetler" data-nav="hizmetler">Hizmetler</a>
+            <a href="#yaklasim" data-nav="yaklasim">Yaklaşımımız</a>
+            <a href="#modeller" data-nav="modeller">Çalışma modelleri</a>
+            <a href="#yorumlar" data-nav="yorumlar">Müşteri yorumları</a>
+          </div>
+          <a class="nav-cta" href="#iletisim">Proje konuşalım <span>↗</span></a>
+          <button class="burger" id="burger" aria-expanded="false" aria-controls="overlay-menu" aria-label="Menüyü aç"><i></i></button>
         </nav>
       </div>
-
-      <a class="header-cta" href="#iletisim">Proje konuşalım <span>→</span></a>
     </header>
 
     <!-- Fullscreen overlay menu (mobile + keyboard) -->
@@ -112,28 +118,14 @@
       </div>
     </div>
 
-    <!-- Section progress rail -->
-    <aside class="rail" aria-hidden="true">
-      <div class="rail__line"><span id="rail-fill"></span></div>
-      <ul class="rail__dots">
-        <li data-target="hero"><i></i><span>Başlangıç</span></li>
-        <li data-target="hizmetler"><i></i><span>Hizmetler</span></li>
-        <li data-target="yaklasim"><i></i><span>Yaklaşım</span></li>
-        <li data-target="surec"><i></i><span>Süreç</span></li>
-        <li data-target="modeller"><i></i><span>Modeller</span></li>
-        <li data-target="yorumlar"><i></i><span>Yorumlar</span></li>
-        <li data-target="iletisim"><i></i><span>İletişim</span></li>
-      </ul>
-    </aside>
-
     <!-- ===== Robot mascot (fixed, roams the page) ===== -->
     <div class="robot" id="robot" aria-hidden="true">
       <div class="robot__bubble" id="robot-bubble"><span id="robot-bubble-text">Merhaba! Ben Roel.</span></div>
       <svg class="robot__svg" id="robot-svg" viewBox="0 0 160 200" fill="none">
         <defs>
           <linearGradient id="rb-body" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0" stop-color="#f6f2ff" />
-            <stop offset="1" stop-color="#c9bdf2" />
+            <stop offset="0" stop-color="#ffffff" />
+            <stop offset="1" stop-color="#e3daff" />
           </linearGradient>
           <linearGradient id="rb-visor" x1="0" y1="0" x2="0" y2="1">
             <stop offset="0" stop-color="#2a1a5c" />
@@ -159,15 +151,15 @@
           <path class="rb-flame rb-flame--2" d="M90 160 Q96 186 102 160 Z" fill="url(#rb-flame)" />
         </g>
         <g class="rb-arm rb-arm--l">
-          <rect x="14" y="98" width="22" height="46" rx="11" fill="url(#rb-body)" stroke="#8a79c9" stroke-width="2" />
+          <rect x="14" y="98" width="22" height="46" rx="11" fill="url(#rb-body)" stroke="#6d42db" stroke-width="2" />
           <circle cx="25" cy="146" r="9" fill="#8a5df1" />
         </g>
         <g class="rb-arm rb-arm--r">
-          <rect x="124" y="98" width="22" height="46" rx="11" fill="url(#rb-body)" stroke="#8a79c9" stroke-width="2" />
+          <rect x="124" y="98" width="22" height="46" rx="11" fill="url(#rb-body)" stroke="#6d42db" stroke-width="2" />
           <circle cx="135" cy="146" r="9" fill="#5ed5ee" />
         </g>
         <g class="rb-body">
-          <rect x="36" y="92" width="88" height="70" rx="22" fill="url(#rb-body)" stroke="#8a79c9" stroke-width="2.5" />
+          <rect x="36" y="92" width="88" height="70" rx="22" fill="url(#rb-body)" stroke="#6d42db" stroke-width="2.5" />
           <rect x="54" y="108" width="52" height="34" rx="10" fill="url(#rb-visor)" />
           <path class="rb-heart" d="M80 132 l-9 -9 a5.5 5.5 0 0 1 9 -6 a5.5 5.5 0 0 1 9 6 z" fill="url(#rb-accent)" />
           <circle cx="60" cy="152" r="3" fill="#8a5df1" />
@@ -175,10 +167,10 @@
           <circle cx="80" cy="152" r="3" fill="#ff3b7c" />
         </g>
         <g class="rb-head">
-          <line x1="80" y1="30" x2="80" y2="12" stroke="#8a79c9" stroke-width="3" stroke-linecap="round" />
+          <line x1="80" y1="30" x2="80" y2="12" stroke="#6d42db" stroke-width="3" stroke-linecap="round" />
           <circle class="rb-antenna-glow" cx="80" cy="10" r="14" fill="url(#rb-glow)" />
           <circle class="rb-antenna" cx="80" cy="10" r="5" fill="#5ed5ee" />
-          <rect x="30" y="28" width="100" height="62" rx="24" fill="url(#rb-body)" stroke="#8a79c9" stroke-width="2.5" />
+          <rect x="30" y="28" width="100" height="62" rx="24" fill="url(#rb-body)" stroke="#6d42db" stroke-width="2.5" />
           <rect x="40" y="38" width="80" height="42" rx="16" fill="url(#rb-visor)" />
           <g class="rb-eyes">
             <g class="rb-eye rb-eye--l">
@@ -191,8 +183,8 @@
             </g>
           </g>
           <path class="rb-mouth" d="M70 72 Q80 78 90 72" stroke="#5ed5ee" stroke-width="2.5" stroke-linecap="round" fill="none" />
-          <rect x="20" y="48" width="10" height="22" rx="5" fill="#c9bdf2" stroke="#8a79c9" stroke-width="2" />
-          <rect x="130" y="48" width="10" height="22" rx="5" fill="#c9bdf2" stroke="#8a79c9" stroke-width="2" />
+          <rect x="20" y="48" width="10" height="22" rx="5" fill="#e3daff" stroke="#6d42db" stroke-width="2" />
+          <rect x="130" y="48" width="10" height="22" rx="5" fill="#e3daff" stroke="#6d42db" stroke-width="2" />
         </g>
       </svg>
       <div class="robot__sparks" id="robot-sparks"></div>
@@ -201,53 +193,126 @@
     <main id="main">
       <!-- ===== HERO ===== -->
       <section class="hero" id="hero" data-section="hero">
-        <div class="hero__ghost" aria-hidden="true"><span>ROEL</span><span>CLOUD</span></div>
-        <div class="hero__inner">
-          <p class="hero__eyebrow" data-reveal>
-            <span class="pill pill--live"><i></i>Yeni nesil</span>
-            Cloudflare Edge &amp; yüksek performanslı web mimarisi
-          </p>
-          <h1 class="hero__title" id="hero-title">
-            <span class="line"><span class="w">Dijital</span> <span class="w">fikriniz,</span></span>
-            <span class="line"><span class="w w--grad">gerçek</span> <span class="w">bir</span></span>
-            <span class="line"><span class="w">deneyime</span> <span class="w w--outline">dönüşsün.</span></span>
-          </h1>
-          <p class="hero__lead" data-reveal>
-            Tek bir parçayı değil, arayüzden sunucu sınırına kadar sistemin tamamını birlikte tasarlıyoruz.
-            Web, özel yazılım, e-ticaret, mobil ve bulut altyapısı — tek ekip, tek mimari.
-          </p>
-          <div class="hero__actions" data-reveal>
-            <a class="btn btn--primary magnetic" href="#iletisim">
-              <span>Ücretsiz keşif görüşmesi</span>
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
-            </a>
-            <a class="btn btn--ghost magnetic" href="#hizmetler"><span>Hizmetleri incele</span></a>
-          </div>
-          <div class="hero__proof" data-reveal>
-            <div class="stars" aria-label="4.9 üzerinden 5 yıldız">★★★★★</div>
-            <span><strong>4.9 / 5</strong> · 11 doğrulanmış müşteri yorumu</span>
-          </div>
-        </div>
+        <div class="container">
+          <div class="hero__grid">
+            <div class="hero__copy">
+              <p class="hero__eyebrow" data-reveal>
+                <span class="pill pill--live"><i></i>Yeni nesil</span>
+                Cloudflare Edge &amp; yüksek performanslı web mimarisi
+              </p>
+              <h1 class="hero__title" id="hero-title">
+                <span class="line"><span class="w">Dijital</span> <span class="w">fikriniz,</span></span>
+                <span class="line"><span class="w w--grad">gerçek</span> <span class="w w--grad">bir</span> <span class="w w--grad">deneyime</span></span>
+                <span class="line"><span class="w">dönüşsün.</span></span>
+              </h1>
+              <p class="hero__lead" data-reveal>
+                Web siteleri, özel yazılımlar, uygulamalar ve bulut altyapısı. İhtiyacınızı anlayıp birbiriyle uyumlu,
+                yüksek performanslı çözümler geliştiriyoruz.
+              </p>
+              <div class="hero__actions" data-reveal>
+                <a class="btn btn--primary magnetic" href="#iletisim">
+                  <span>Ücretsiz keşif görüşmesi</span>
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8" /></svg>
+                </a>
+                <a class="btn btn--ghost magnetic" href="#hizmetler"><span>Hizmetleri incele</span></a>
+              </div>
+              <div class="hero__proof" data-reveal>
+                <div class="stars" aria-label="4.9 üzerinden 5 yıldız">★★★★★</div>
+                <span><strong>4.9 / 5</strong> · 11 doğrulanmış müşteri yorumu</span>
+              </div>
+            </div>
 
-        <ul class="hero__stats" id="hero-stats">
-          <li data-reveal><b><span data-count="98">0</span>+</b><span>Google PageSpeed &amp; CWV</span></li>
-          <li data-reveal><b><span data-count="13">0</span></b><span>Uçtan uca mühendislik alanı</span></li>
-          <li data-reveal><b><span data-count="300">0</span>+</b><span>Cloudflare global edge noktası</span></li>
-          <li data-reveal><b>&lt;<span data-count="25">0</span> ms</b><span>Ortalama edge yanıt süresi</span></li>
-          <li data-reveal><b>%<span data-count="99.99" data-decimals="2">0</span></b><span>Uptime hedefi</span></li>
-        </ul>
+            <div class="hero__visual" id="hero-visual" aria-hidden="true">
+              <div class="globe" id="globe">
+                <svg viewBox="0 0 600 600" fill="none">
+                  <defs>
+                    <radialGradient id="g-sphere" cx="38%" cy="32%" r="72%">
+                      <stop offset="0" stop-color="#d5c4ff" />
+                      <stop offset="0.5" stop-color="#8a5df1" />
+                      <stop offset="1" stop-color="#4b22c4" />
+                    </radialGradient>
+                    <radialGradient id="g-halo" cx="50%" cy="50%" r="50%">
+                      <stop offset="0" stop-color="#8a5df1" stop-opacity="0.35" />
+                      <stop offset="0.6" stop-color="#8a5df1" stop-opacity="0.08" />
+                      <stop offset="1" stop-color="#8a5df1" stop-opacity="0" />
+                    </radialGradient>
+                    <radialGradient id="g-shine" cx="30%" cy="25%" r="50%">
+                      <stop offset="0" stop-color="#fff" stop-opacity="0.55" />
+                      <stop offset="1" stop-color="#fff" stop-opacity="0" />
+                    </radialGradient>
+                    <pattern id="g-dots" width="13" height="13" patternUnits="userSpaceOnUse">
+                      <circle cx="6.5" cy="6.5" r="2.1" fill="#1f113f" fill-opacity="0.55" />
+                    </pattern>
+                    <pattern id="g-dots-light" width="13" height="13" patternUnits="userSpaceOnUse">
+                      <circle cx="6.5" cy="6.5" r="1.6" fill="#fff" fill-opacity="0.75" />
+                    </pattern>
+                    <clipPath id="g-clip"><circle cx="300" cy="300" r="212" /></clipPath>
+                  </defs>
+                  <g class="globe__wrap">
+                    <circle cx="300" cy="300" r="300" fill="url(#g-halo)" />
+                    <circle cx="300" cy="300" r="212" fill="url(#g-sphere)" />
+                    <g clip-path="url(#g-clip)">
+                      <g class="globe__land-track">
+                        <!-- tile 1 -->
+                        <path d="M128 150 C 170 120, 230 140, 220 200 C 212 250, 180 262, 196 318 C 206 356, 170 384, 150 352 C 134 322, 98 286, 104 236 C 108 200, 100 170, 128 150 Z" fill="url(#g-dots)" />
+                        <path d="M262 136 C 300 118, 340 136, 334 174 C 372 194, 366 252, 346 292 C 338 342, 300 356, 288 316 C 276 272, 248 232, 258 196 C 262 172, 250 148, 262 136 Z" fill="url(#g-dots)" />
+                        <path d="M356 112 C 420 92, 480 118, 472 176 C 464 218, 420 236, 390 214 C 374 192, 350 160, 356 112 Z" fill="url(#g-dots)" />
+                        <path d="M420 300 C 450 290, 480 310, 472 346 C 464 376, 430 380, 416 356 C 406 336, 400 310, 420 300 Z" fill="url(#g-dots)" />
+                        <!-- tile 2 (shifted +420 for seamless loop) -->
+                        <path transform="translate(420 0)" d="M128 150 C 170 120, 230 140, 220 200 C 212 250, 180 262, 196 318 C 206 356, 170 384, 150 352 C 134 322, 98 286, 104 236 C 108 200, 100 170, 128 150 Z" fill="url(#g-dots)" />
+                        <path transform="translate(420 0)" d="M262 136 C 300 118, 340 136, 334 174 C 372 194, 366 252, 346 292 C 338 342, 300 356, 288 316 C 276 272, 248 232, 258 196 C 262 172, 250 148, 262 136 Z" fill="url(#g-dots)" />
+                        <path transform="translate(420 0)" d="M356 112 C 420 92, 480 118, 472 176 C 464 218, 420 236, 390 214 C 374 192, 350 160, 356 112 Z" fill="url(#g-dots)" />
+                        <path transform="translate(420 0)" d="M420 300 C 450 290, 480 310, 472 346 C 464 376, 430 380, 416 356 C 406 336, 400 310, 420 300 Z" fill="url(#g-dots)" />
+                        <!-- light dot highlights on land -->
+                        <path d="M300 230 C 330 220, 352 236, 344 262 C 336 282, 310 286, 300 268 C 292 254, 286 240, 300 230 Z" fill="url(#g-dots-light)" />
+                        <path transform="translate(420 0)" d="M300 230 C 330 220, 352 236, 344 262 C 336 282, 310 286, 300 268 C 292 254, 286 240, 300 230 Z" fill="url(#g-dots-light)" />
+                      </g>
+                      <circle cx="300" cy="300" r="212" fill="url(#g-shine)" />
+                    </g>
+                    <circle cx="300" cy="300" r="212" stroke="#fff" stroke-opacity="0.45" stroke-width="1.5" />
+                    <!-- orbits -->
+                    <g class="globe__orbit">
+                      <ellipse cx="300" cy="300" rx="290" ry="84" stroke="#b9a4f5" stroke-width="1.2" transform="rotate(-18 300 300)" />
+                      <circle cx="580" cy="258" r="5" fill="#fff" stroke="#8a5df1" stroke-width="2" transform="rotate(-18 300 300)" />
+                    </g>
+                    <g class="globe__orbit globe__orbit--2">
+                      <ellipse cx="300" cy="300" rx="262" ry="236" stroke="#d6caef" stroke-width="1" stroke-dasharray="4 7" />
+                    </g>
+                    <!-- network links -->
+                    <g stroke="#fff" stroke-opacity="0.7" stroke-width="1.2">
+                      <line x1="196" y1="214" x2="300" y2="246" /><line x1="300" y1="246" x2="392" y2="186" /><line x1="300" y1="246" x2="330" y2="340" /><line x1="196" y1="214" x2="176" y2="330" /><line x1="330" y1="340" x2="440" y2="330" />
+                    </g>
+                    <g fill="#fff">
+                      <circle class="globe__node" cx="196" cy="214" r="5" /><circle class="globe__node" cx="300" cy="246" r="6" /><circle class="globe__node" cx="392" cy="186" r="4.5" /><circle class="globe__node" cx="330" cy="340" r="5" /><circle class="globe__node" cx="176" cy="330" r="4" /><circle class="globe__node" cx="440" cy="330" r="4.5" />
+                    </g>
+                  </g>
+                </svg>
+                <i class="globe__p" style="left: 6%; top: 18%; animation-delay: -1s"></i>
+                <i class="globe__p globe__p--sm" style="left: 14%; top: 68%; animation-delay: -3s"></i>
+                <i class="globe__p globe__p--dot" style="left: 88%; top: 26%; animation-delay: -2s"></i>
+                <i class="globe__p globe__p--lg" style="left: 80%; top: 78%; animation-delay: -4s"></i>
+                <i class="globe__p globe__p--dot globe__p--sm" style="left: 48%; top: 4%; animation-delay: -5s"></i>
+                <i class="globe__p globe__p--sm" style="left: 94%; top: 56%; animation-delay: -1.5s"></i>
+                <i class="globe__p globe__p--dot" style="left: 24%; top: 92%; animation-delay: -2.5s"></i>
+              </div>
+            </div>
+          </div>
 
-        <div class="hero__scroll" aria-hidden="true">
-          <span class="hero__scroll-line"></span>
-          <span>kaydır</span>
+          <ul class="hero__stats" id="hero-stats">
+            <li data-reveal><b><span class="star">★</span><span data-count="4.9" data-decimals="1">0</span> / 5</b><span>11 doğrulanmış müşteri yorumu</span></li>
+            <li data-reveal><b><span data-count="98">0</span>+</b><span>Google PageSpeed &amp; CWV</span></li>
+            <li data-reveal><b><span data-count="13">0</span></b><span>Uçtan uca mühendislik alanı</span></li>
+            <li data-reveal><b><span data-count="300">0</span>+</b><span>Cloudflare global edge noktası</span></li>
+            <li data-reveal><b>&lt;<span data-count="25">0</span> ms</b><span>Ortalama edge yanıt süresi</span></li>
+          </ul>
         </div>
       </section>
 
-      <!-- ===== MARQUEE ===== -->
-      <div class="ticker" aria-hidden="true">
-        <div class="ticker__track">
-          <span>Web Tasarım</span><span>E-Ticaret</span><span>Özel Yazılım</span><span>SaaS</span><span>Mobil Uygulama</span><span>Cloudflare Edge</span><span>DevOps</span><span>API Entegrasyonu</span><span>Yapay Zekâ</span><span>Teknik SEO</span><span>UI / UX</span><span>Masaüstü</span><span>Blog &amp; Haber</span>
-          <span>Web Tasarım</span><span>E-Ticaret</span><span>Özel Yazılım</span><span>SaaS</span><span>Mobil Uygulama</span><span>Cloudflare Edge</span><span>DevOps</span><span>API Entegrasyonu</span><span>Yapay Zekâ</span><span>Teknik SEO</span><span>UI / UX</span><span>Masaüstü</span><span>Blog &amp; Haber</span>
+      <!-- ===== TECH MARQUEE ===== -->
+      <div class="tech" aria-label="Kullandığımız teknolojiler">
+        <div class="tech__track">
+          <span><i style="--c:#000">N</i>Next.js</span><span><i style="--c:#149eca">⚛</i>React</span><span><i style="--c:#5fa04e">JS</i>Node.js</span><span><i style="--c:#3178c6">TS</i>TypeScript</span><span><i style="--c:#336791">PG</i>PostgreSQL</span><span><i style="--c:#635bff">S</i>Stripe</span><span><i style="--c:#0f0f0f">AI</i>OpenAI</span><span><i style="--c:#d82c20">R</i>Redis</span><span><i style="--c:#f38020">CF</i>Cloudflare</span><span><i style="--c:#ff9900">A</i>AWS</span><span><i style="--c:#2496ed">D</i>Docker</span><span><i style="--c:#4285f4">G</i>Google Cloud</span>
+          <span><i style="--c:#000">N</i>Next.js</span><span><i style="--c:#149eca">⚛</i>React</span><span><i style="--c:#5fa04e">JS</i>Node.js</span><span><i style="--c:#3178c6">TS</i>TypeScript</span><span><i style="--c:#336791">PG</i>PostgreSQL</span><span><i style="--c:#635bff">S</i>Stripe</span><span><i style="--c:#0f0f0f">AI</i>OpenAI</span><span><i style="--c:#d82c20">R</i>Redis</span><span><i style="--c:#f38020">CF</i>Cloudflare</span><span><i style="--c:#ff9900">A</i>AWS</span><span><i style="--c:#2496ed">D</i>Docker</span><span><i style="--c:#4285f4">G</i>Google Cloud</span>
         </div>
       </div>
 

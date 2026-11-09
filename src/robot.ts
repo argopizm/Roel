@@ -49,12 +49,18 @@ export function initRobot() {
     const vh = window.innerHeight;
     const { w, h } = size();
     if (isMobile()) return { x: vw - w - 12, y: vh - h - 12, s: 0.95 };
-    const s = gsap.utils.clamp(1.1, 1.9, vw / 820);
+    // Perch at the lower-left edge of the hero globe.
+    const globe = document.getElementById("globe");
+    const s = gsap.utils.clamp(0.95, 1.2, vw / 1300);
+    if (globe && vw > 1100) {
+      const r = globe.getBoundingClientRect();
+      return { x: r.left - w * s * 0.25, y: r.top + r.height * 0.78 - (h * s) / 2, s };
+    }
     return { x: Math.min(vw * 0.66, vw - w * s - 40), y: vh * 0.5 - (h * s) / 2 + 20, s };
   }
   function dockPose(): Pose {
     const { w, h } = size();
-    return { x: window.innerWidth - w - 20, y: window.innerHeight - h - 16, s: 1 };
+    return { x: window.innerWidth - w - 20, y: window.innerHeight - h - 16, s: 0.85 };
   }
 
   // ---------- speech ----------
@@ -137,7 +143,8 @@ export function initRobot() {
     // On small screens the mascot stays docked so it never covers tap targets.
     if (mode !== "roam" || reduced || document.hidden || isMobile()) return scheduleWander();
     const { w } = size();
-    const minX = isMobile() ? 12 : 90;
+    // Roam only along the right third so the mascot never sits on primary content.
+    const minX = Math.max(12, window.innerWidth * 0.62);
     const maxX = window.innerWidth - w - 20;
     const target = gsap.utils.random(minX, maxX);
     const dist = Math.abs(target - roamX);

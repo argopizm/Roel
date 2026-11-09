@@ -46,7 +46,7 @@ export function renderContent() {
         <h3>${s.title}</h3>
         <span class="svc__short">${s.short}</span>
         <p>${s.desc}</p>
-        <span class="svc__glyph" aria-hidden="true">${String(i + 1).padStart(2, "0")}</span>
+        <span class="svc__glyph" aria-hidden="true">✦</span>
       </article>`,
       )
       .join("") +
@@ -84,20 +84,20 @@ export function initScrollAnimations(onSection: (id: string) => void) {
   const intro = gsap.timeline({ paused: true });
   intro
     .to("#hero-title .w", { y: 0, duration: 1.1, stagger: 0.08, ease: "power4.out" }, 0)
-    .to(".hero__inner [data-reveal]", { opacity: 1, y: 0, duration: 0.9, stagger: 0.1, ease: "power3.out" }, 0.4)
+    .to(".hero__copy [data-reveal]", { opacity: 1, y: 0, duration: 0.9, stagger: 0.1, ease: "power3.out" }, 0.4)
+    .from("#globe", { scale: 0.86, opacity: 0, duration: 1.4, ease: "power3.out" }, 0.2)
     .to(".hero__stats [data-reveal]", { opacity: 1, y: 0, duration: 0.8, stagger: 0.08, ease: "power3.out" }, 0.8)
     .add(() => countUp(), 0.9);
 
-  // ghost text parallax
-  gsap.to(".hero__ghost", {
-    yPercent: 30,
-    xPercent: 6,
+  // hero parallax: globe drifts slower than the copy
+  gsap.to("#hero-visual", {
+    yPercent: 18,
     ease: "none",
     scrollTrigger: { trigger: "#hero", start: "top top", end: "bottom top", scrub: true },
   });
-  gsap.to(".hero__inner", {
-    yPercent: -12,
-    opacity: 0.2,
+  gsap.to(".hero__copy", {
+    yPercent: -10,
+    opacity: 0.3,
     ease: "none",
     scrollTrigger: { trigger: "#hero", start: "top top", end: "bottom top", scrub: true },
   });
@@ -254,8 +254,7 @@ export function initScrollAnimations(onSection: (id: string) => void) {
     });
   }
 
-  // ----- section tracking (rail + accent + robot) -----
-  const dots = Array.from(document.querySelectorAll<HTMLLIElement>(".rail__dots li"));
+  // ----- section tracking (nav + accent + robot) -----
   document.querySelectorAll<HTMLElement>("[data-section]").forEach((sec) => {
     const id = sec.dataset.section!;
     ScrollTrigger.create({
@@ -265,23 +264,10 @@ export function initScrollAnimations(onSection: (id: string) => void) {
       onToggle: (self) => {
         if (!self.isActive) return;
         document.body.dataset.section = id;
-        dots.forEach((d) => d.classList.toggle("is-active", d.dataset.target === id));
         onSection(id);
       },
     });
   });
-  const fill = document.getElementById("rail-fill")!;
-  ScrollTrigger.create({
-    start: 0,
-    end: "max",
-    onUpdate: (self) => { fill.style.height = `${self.progress * 100}%`; },
-  });
-
-  // cursor glow
-  const glow = document.getElementById("cursor-glow")!;
-  const gx = gsap.quickTo(glow, "x", { duration: 0.8, ease: "power3" });
-  const gy = gsap.quickTo(glow, "y", { duration: 0.8, ease: "power3" });
-  window.addEventListener("pointermove", (e) => { gx(e.clientX); gy(e.clientY); }, { passive: true });
 
   if (reduced) {
     intro.progress(1);

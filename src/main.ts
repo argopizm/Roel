@@ -12,11 +12,12 @@ window.addEventListener("pageshow", () => window.scrollTo(0, 0));
 const bg = initBackground(document.getElementById("bg-canvas") as HTMLCanvasElement);
 renderContent();
 const scroller = initSmoothScroll();
-initNav(scroller.scrollTo);
+const nav = initNav(scroller.scrollTo);
 const robot = initRobot();
 const anim = initScrollAnimations((id) => {
   bg.setSection(id);
   robot.setSection(id);
+  nav.setSection(id);
 });
 
 // Loader: wait for fonts, then reveal.

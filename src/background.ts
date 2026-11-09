@@ -19,15 +19,16 @@ interface Blob {
   phase: number;
 }
 
+// Light-theme accents: all within the brand purple family so the page stays corporate.
 const ACCENTS: Record<string, [number, number, number]> = {
-  hero: [138, 93, 241],
-  hizmetler: [94, 213, 238],
-  yaklasim: [255, 158, 100],
-  surec: [82, 211, 153],
-  modeller: [255, 59, 124],
-  yorumlar: [246, 160, 77],
-  sss: [185, 140, 255],
-  iletisim: [94, 213, 238],
+  hero: [130, 83, 245],
+  hizmetler: [103, 61, 230],
+  yaklasim: [130, 83, 245],
+  surec: [80, 37, 209],
+  modeller: [103, 61, 230],
+  yorumlar: [130, 83, 245],
+  sss: [103, 61, 230],
+  iletisim: [168, 146, 255],
 };
 
 export function initBackground(canvas: HTMLCanvasElement) {
@@ -52,7 +53,7 @@ export function initBackground(canvas: HTMLCanvasElement) {
     canvas.width = w * dpr;
     canvas.height = h * dpr;
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    const count = Math.round(Math.min(110, (w * h) / 14000));
+    const count = Math.round(Math.min(80, (w * h) / 18000));
     nodes = Array.from({ length: count }, () => ({
       x: Math.random() * w,
       y: Math.random() * h,
@@ -62,9 +63,9 @@ export function initBackground(canvas: HTMLCanvasElement) {
       phase: Math.random() * Math.PI * 2,
     }));
     blobs = [
-      { x: 0.2, y: 0.3, r: 0.45, hue: [103, 61, 230], speed: 0.00018, phase: 0 },
-      { x: 0.8, y: 0.2, r: 0.4, hue: [94, 213, 238], speed: 0.00023, phase: 2 },
-      { x: 0.6, y: 0.85, r: 0.5, hue: [255, 59, 124], speed: 0.00015, phase: 4 },
+      { x: 0.2, y: 0.3, r: 0.45, hue: [138, 93, 241], speed: 0.00018, phase: 0 },
+      { x: 0.8, y: 0.2, r: 0.4, hue: [168, 146, 255], speed: 0.00023, phase: 2 },
+      { x: 0.6, y: 0.85, r: 0.5, hue: [201, 181, 255], speed: 0.00015, phase: 4 },
     ];
   }
 
@@ -81,23 +82,21 @@ export function initBackground(canvas: HTMLCanvasElement) {
     lastScroll = sy;
     const velN = Math.max(-1, Math.min(1, scrollVel / 60));
 
-    // aurora blobs
-    ctx.globalCompositeOperation = "lighter";
+    // soft lavender haze (normal blending so it tints white instead of washing it out)
     for (const b of blobs) {
       const bx = (b.x + Math.sin(t * b.speed * 60 + b.phase) * 0.12) * w;
       const by = (b.y + Math.cos(t * b.speed * 45 + b.phase) * 0.14) * h - velN * 40;
       const r = b.r * Math.max(w, h) * 0.9;
       const g = ctx.createRadialGradient(bx, by, 0, bx, by, r);
       const [cr, cg, cb] = b === blobs[0] ? accent : b.hue;
-      g.addColorStop(0, `rgba(${cr | 0},${cg | 0},${cb | 0},0.16)`);
-      g.addColorStop(0.5, `rgba(${cr | 0},${cg | 0},${cb | 0},0.05)`);
-      g.addColorStop(1, "rgba(0,0,0,0)");
+      g.addColorStop(0, `rgba(${cr | 0},${cg | 0},${cb | 0},0.09)`);
+      g.addColorStop(0.5, `rgba(${cr | 0},${cg | 0},${cb | 0},0.03)`);
+      g.addColorStop(1, "rgba(255,255,255,0)");
       ctx.fillStyle = g;
       ctx.beginPath();
       ctx.arc(bx, by, r, 0, Math.PI * 2);
       ctx.fill();
     }
-    ctx.globalCompositeOperation = "source-over";
 
     // nodes
     const [ar, ag, ab] = accent.map((v) => v | 0);
@@ -133,7 +132,7 @@ export function initBackground(canvas: HTMLCanvasElement) {
         const dy = a.y - b.y;
         const d = Math.hypot(dx, dy);
         if (d < linkDist) {
-          const alpha = (1 - d / linkDist) * 0.22;
+          const alpha = (1 - d / linkDist) * 0.11;
           ctx.strokeStyle = `rgba(${ar},${ag},${ab},${alpha})`;
           ctx.beginPath();
           ctx.moveTo(a.x, a.y);
@@ -144,7 +143,7 @@ export function initBackground(canvas: HTMLCanvasElement) {
     }
     for (const n of nodes) {
       const pulse = 0.6 + Math.sin(t * 0.03 + n.phase) * 0.4;
-      ctx.fillStyle = `rgba(${ar},${ag},${ab},${0.35 + pulse * 0.45})`;
+      ctx.fillStyle = `rgba(${ar},${ag},${ab},${0.18 + pulse * 0.25})`;
       ctx.beginPath();
       ctx.arc(n.x, n.y, n.r * (0.8 + pulse * 0.5), 0, Math.PI * 2);
       ctx.fill();
