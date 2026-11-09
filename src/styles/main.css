@@ -199,7 +199,8 @@ main { position: relative; z-index: 2; }
 .hero__stats { display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; padding: 28px 0 44px; border-top: 1px solid #e9e4f3; max-width: 980px; }
 .hero__stats b { display: flex; align-items: baseline; gap: 4px; font-size: clamp(24px, 2.2vw, 30px); font-weight: 700; letter-spacing: -0.04em; line-height: 1; margin-bottom: 8px; color: var(--ink); }
 .hero__stats b .star { color: var(--amber); font-size: 18px; }
-.hero__stats span { font-size: 13px; color: var(--muted); font-weight: 500; line-height: 1.4; display: block; }
+.hero__stats b span { font: inherit; color: inherit; display: inline; margin: 0; }
+.hero__stats li > span { font-size: 13px; color: var(--muted); font-weight: 500; line-height: 1.4; display: block; }
 
 /* ---------- Tech marquee ---------- */
 .tech { position: relative; z-index: 1; overflow: hidden; background: var(--bg-2); border-bottom: 1px solid #eeeaf6; padding: 22px 0; }
