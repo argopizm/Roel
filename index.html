@@ -1,0 +1,518 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Roel Cloud | Kurumsal Web Tasarım, Özel Yazılım, E-Ticaret ve Bulut Mühendisliği</title>
+    <meta
+      name="description"
+      content="Dijital fikriniz, gerçek bir deneyime dönüşsün. Cloudflare Edge üzerinde yüksek performanslı web mimarisi, özel yazılım, e-ticaret, mobil uygulama ve yapay zekâ otomasyonu."
+    />
+    <meta name="theme-color" content="#0b0618" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap"
+      rel="stylesheet"
+    />
+    <meta property="og:title" content="Roel Cloud — Dijital fikriniz, gerçek bir deneyime dönüşsün." />
+    <meta property="og:description" content="Arayüzden sunucu sınırına kadar sistemin tamamını birlikte tasarlıyoruz." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://roelcloud.com/" />
+    <script>
+      // Must run before first layout so the browser never restores a scroll offset.
+      if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+    </script>
+  </head>
+  <body data-section="hero">
+    <div class="loader" id="loader" aria-hidden="true">
+      <div class="loader__mark">
+        <svg viewBox="0 0 136 96" fill="none" aria-hidden="true">
+          <path
+            d="M36 78H100C113.255 78 124 67.2548 124 54C124 41.4567 114.371 31.1636 102.095 30.0897C97.8104 17.8075 86.1338 9 72.4 9C55.4391 9 41.6177 22.3935 40.9283 39.1815C40.2921 39.0622 39.6368 39 38.9667 39C25.178 39 14 47.7304 14 58.5C14 69.2696 23.8497 78 36 78Z"
+            stroke="currentColor"
+            stroke-width="10.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </div>
+      <div class="loader__bar"><span></span></div>
+    </div>
+
+    <canvas id="bg-canvas" class="bg-canvas" aria-hidden="true"></canvas>
+    <div class="bg-grain" aria-hidden="true"></div>
+    <div class="cursor-glow" id="cursor-glow" aria-hidden="true"></div>
+
+    <a class="skip-link" href="#main">İçeriğe atla</a>
+
+    <!-- ===== Creative header: floating logo capsule + command orb + radial menu ===== -->
+    <header class="site-header" id="site-header">
+      <a class="logo-capsule" href="#hero" aria-label="Roel Cloud — ana sayfa">
+        <span class="logo-capsule__mark">
+          <svg viewBox="0 0 136 96" fill="none" aria-hidden="true">
+            <defs>
+              <linearGradient id="lg-cloud" x1="16" y1="80" x2="116" y2="18" gradientUnits="userSpaceOnUse">
+                <stop offset="0" stop-color="#c3b4ff" />
+                <stop offset="0.5" stop-color="#8a5df1" />
+                <stop offset="1" stop-color="#5ed5ee" />
+              </linearGradient>
+            </defs>
+            <path
+              d="M36 78H100C113.255 78 124 67.2548 124 54C124 41.4567 114.371 31.1636 102.095 30.0897C97.8104 17.8075 86.1338 9 72.4 9C55.4391 9 41.6177 22.3935 40.9283 39.1815C40.2921 39.0622 39.6368 39 38.9667 39C25.178 39 14 47.7304 14 58.5C14 69.2696 23.8497 78 36 78Z"
+              stroke="url(#lg-cloud)"
+              stroke-width="10.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </span>
+        <span class="logo-capsule__text">Roel<em>Cloud</em></span>
+        <span class="logo-capsule__status"><i></i> edge online</span>
+      </a>
+
+      <div class="orb-wrap">
+        <button class="orb" id="orb" aria-expanded="false" aria-controls="radial-menu" aria-label="Menüyü aç">
+          <span class="orb__core"></span>
+          <span class="orb__ring"></span>
+          <span class="orb__ring orb__ring--2"></span>
+          <span class="orb__label">menü</span>
+        </button>
+        <nav class="radial" id="radial-menu" aria-label="Site menüsü" hidden>
+          <a class="radial__item" href="#hizmetler" data-i="0"><small>01</small>Hizmetler</a>
+          <a class="radial__item" href="#yaklasim" data-i="1"><small>02</small>Yaklaşım</a>
+          <a class="radial__item" href="#surec" data-i="2"><small>03</small>Süreç</a>
+          <a class="radial__item" href="#modeller" data-i="3"><small>04</small>Modeller</a>
+          <a class="radial__item" href="#yorumlar" data-i="4"><small>05</small>Yorumlar</a>
+          <a class="radial__item" href="#iletisim" data-i="5"><small>06</small>İletişim</a>
+        </nav>
+      </div>
+
+      <a class="header-cta" href="#iletisim">Proje konuşalım <span>→</span></a>
+    </header>
+
+    <!-- Fullscreen overlay menu (mobile + keyboard) -->
+    <div class="overlay-menu" id="overlay-menu" aria-hidden="true">
+      <div class="overlay-menu__bg"></div>
+      <div class="overlay-menu__inner">
+        <p class="overlay-menu__eyebrow">Roel Cloud — Navigasyon</p>
+        <nav aria-label="Mobil menü">
+          <a href="#hizmetler"><span>01</span>Hizmetler</a>
+          <a href="#yaklasim"><span>02</span>Yaklaşımımız</a>
+          <a href="#surec"><span>03</span>Süreç</a>
+          <a href="#modeller"><span>04</span>Çalışma modelleri</a>
+          <a href="#yorumlar"><span>05</span>Müşteri yorumları</a>
+          <a href="#iletisim"><span>06</span>İletişim &amp; teklif</a>
+        </nav>
+        <div class="overlay-menu__foot">
+          <a href="https://wa.me/905528219623" target="_blank" rel="noopener">WhatsApp</a>
+          <a href="mailto:info@roelcloud.com">info@roelcloud.com</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section progress rail -->
+    <aside class="rail" aria-hidden="true">
+      <div class="rail__line"><span id="rail-fill"></span></div>
+      <ul class="rail__dots">
+        <li data-target="hero"><i></i><span>Başlangıç</span></li>
+        <li data-target="hizmetler"><i></i><span>Hizmetler</span></li>
+        <li data-target="yaklasim"><i></i><span>Yaklaşım</span></li>
+        <li data-target="surec"><i></i><span>Süreç</span></li>
+        <li data-target="modeller"><i></i><span>Modeller</span></li>
+        <li data-target="yorumlar"><i></i><span>Yorumlar</span></li>
+        <li data-target="iletisim"><i></i><span>İletişim</span></li>
+      </ul>
+    </aside>
+
+    <!-- ===== Robot mascot (fixed, roams the page) ===== -->
+    <div class="robot" id="robot" aria-hidden="true">
+      <div class="robot__bubble" id="robot-bubble"><span id="robot-bubble-text">Merhaba! Ben Roel.</span></div>
+      <svg class="robot__svg" id="robot-svg" viewBox="0 0 160 200" fill="none">
+        <defs>
+          <linearGradient id="rb-body" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#f6f2ff" />
+            <stop offset="1" stop-color="#c9bdf2" />
+          </linearGradient>
+          <linearGradient id="rb-visor" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#2a1a5c" />
+            <stop offset="1" stop-color="#120a2b" />
+          </linearGradient>
+          <linearGradient id="rb-accent" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0" stop-color="#8a5df1" />
+            <stop offset="1" stop-color="#5ed5ee" />
+          </linearGradient>
+          <radialGradient id="rb-glow" cx="0.5" cy="0.5" r="0.5">
+            <stop offset="0" stop-color="#5ed5ee" stop-opacity="0.9" />
+            <stop offset="1" stop-color="#5ed5ee" stop-opacity="0" />
+          </radialGradient>
+          <linearGradient id="rb-flame" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#ffffff" />
+            <stop offset="0.4" stop-color="#5ed5ee" />
+            <stop offset="1" stop-color="#8a5df1" stop-opacity="0" />
+          </linearGradient>
+        </defs>
+        <ellipse class="rb-shadow" cx="80" cy="192" rx="42" ry="6" fill="#000" opacity="0.35" />
+        <g class="rb-thrusters">
+          <path class="rb-flame" d="M58 160 Q64 186 70 160 Z" fill="url(#rb-flame)" />
+          <path class="rb-flame rb-flame--2" d="M90 160 Q96 186 102 160 Z" fill="url(#rb-flame)" />
+        </g>
+        <g class="rb-arm rb-arm--l">
+          <rect x="14" y="98" width="22" height="46" rx="11" fill="url(#rb-body)" stroke="#8a79c9" stroke-width="2" />
+          <circle cx="25" cy="146" r="9" fill="#8a5df1" />
+        </g>
+        <g class="rb-arm rb-arm--r">
+          <rect x="124" y="98" width="22" height="46" rx="11" fill="url(#rb-body)" stroke="#8a79c9" stroke-width="2" />
+          <circle cx="135" cy="146" r="9" fill="#5ed5ee" />
+        </g>
+        <g class="rb-body">
+          <rect x="36" y="92" width="88" height="70" rx="22" fill="url(#rb-body)" stroke="#8a79c9" stroke-width="2.5" />
+          <rect x="54" y="108" width="52" height="34" rx="10" fill="url(#rb-visor)" />
+          <path class="rb-heart" d="M80 132 l-9 -9 a5.5 5.5 0 0 1 9 -6 a5.5 5.5 0 0 1 9 6 z" fill="url(#rb-accent)" />
+          <circle cx="60" cy="152" r="3" fill="#8a5df1" />
+          <circle cx="70" cy="152" r="3" fill="#5ed5ee" />
+          <circle cx="80" cy="152" r="3" fill="#ff3b7c" />
+        </g>
+        <g class="rb-head">
+          <line x1="80" y1="30" x2="80" y2="12" stroke="#8a79c9" stroke-width="3" stroke-linecap="round" />
+          <circle class="rb-antenna-glow" cx="80" cy="10" r="14" fill="url(#rb-glow)" />
+          <circle class="rb-antenna" cx="80" cy="10" r="5" fill="#5ed5ee" />
+          <rect x="30" y="28" width="100" height="62" rx="24" fill="url(#rb-body)" stroke="#8a79c9" stroke-width="2.5" />
+          <rect x="40" y="38" width="80" height="42" rx="16" fill="url(#rb-visor)" />
+          <g class="rb-eyes">
+            <g class="rb-eye rb-eye--l">
+              <ellipse cx="62" cy="59" rx="9" ry="11" fill="#5ed5ee" />
+              <circle class="rb-pupil" cx="64" cy="57" r="3.5" fill="#0b0618" />
+            </g>
+            <g class="rb-eye rb-eye--r">
+              <ellipse cx="98" cy="59" rx="9" ry="11" fill="#5ed5ee" />
+              <circle class="rb-pupil" cx="100" cy="57" r="3.5" fill="#0b0618" />
+            </g>
+          </g>
+          <path class="rb-mouth" d="M70 72 Q80 78 90 72" stroke="#5ed5ee" stroke-width="2.5" stroke-linecap="round" fill="none" />
+          <rect x="20" y="48" width="10" height="22" rx="5" fill="#c9bdf2" stroke="#8a79c9" stroke-width="2" />
+          <rect x="130" y="48" width="10" height="22" rx="5" fill="#c9bdf2" stroke="#8a79c9" stroke-width="2" />
+        </g>
+      </svg>
+      <div class="robot__sparks" id="robot-sparks"></div>
+    </div>
+
+    <main id="main">
+      <!-- ===== HERO ===== -->
+      <section class="hero" id="hero" data-section="hero">
+        <div class="hero__ghost" aria-hidden="true"><span>ROEL</span><span>CLOUD</span></div>
+        <div class="hero__inner">
+          <p class="hero__eyebrow" data-reveal>
+            <span class="pill pill--live"><i></i>Yeni nesil</span>
+            Cloudflare Edge &amp; yüksek performanslı web mimarisi
+          </p>
+          <h1 class="hero__title" id="hero-title">
+            <span class="line"><span class="w">Dijital</span> <span class="w">fikriniz,</span></span>
+            <span class="line"><span class="w w--grad">gerçek</span> <span class="w">bir</span></span>
+            <span class="line"><span class="w">deneyime</span> <span class="w w--outline">dönüşsün.</span></span>
+          </h1>
+          <p class="hero__lead" data-reveal>
+            Tek bir parçayı değil, arayüzden sunucu sınırına kadar sistemin tamamını birlikte tasarlıyoruz.
+            Web, özel yazılım, e-ticaret, mobil ve bulut altyapısı — tek ekip, tek mimari.
+          </p>
+          <div class="hero__actions" data-reveal>
+            <a class="btn btn--primary magnetic" href="#iletisim">
+              <span>Ücretsiz keşif görüşmesi</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+            </a>
+            <a class="btn btn--ghost magnetic" href="#hizmetler"><span>Hizmetleri incele</span></a>
+          </div>
+          <div class="hero__proof" data-reveal>
+            <div class="stars" aria-label="4.9 üzerinden 5 yıldız">★★★★★</div>
+            <span><strong>4.9 / 5</strong> · 11 doğrulanmış müşteri yorumu</span>
+          </div>
+        </div>
+
+        <ul class="hero__stats" id="hero-stats">
+          <li data-reveal><b><span data-count="98">0</span>+</b><span>Google PageSpeed &amp; CWV</span></li>
+          <li data-reveal><b><span data-count="13">0</span></b><span>Uçtan uca mühendislik alanı</span></li>
+          <li data-reveal><b><span data-count="300">0</span>+</b><span>Cloudflare global edge noktası</span></li>
+          <li data-reveal><b>&lt;<span data-count="25">0</span> ms</b><span>Ortalama edge yanıt süresi</span></li>
+          <li data-reveal><b>%<span data-count="99.99" data-decimals="2">0</span></b><span>Uptime hedefi</span></li>
+        </ul>
+
+        <div class="hero__scroll" aria-hidden="true">
+          <span class="hero__scroll-line"></span>
+          <span>kaydır</span>
+        </div>
+      </section>
+
+      <!-- ===== MARQUEE ===== -->
+      <div class="ticker" aria-hidden="true">
+        <div class="ticker__track">
+          <span>Web Tasarım</span><span>E-Ticaret</span><span>Özel Yazılım</span><span>SaaS</span><span>Mobil Uygulama</span><span>Cloudflare Edge</span><span>DevOps</span><span>API Entegrasyonu</span><span>Yapay Zekâ</span><span>Teknik SEO</span><span>UI / UX</span><span>Masaüstü</span><span>Blog &amp; Haber</span>
+          <span>Web Tasarım</span><span>E-Ticaret</span><span>Özel Yazılım</span><span>SaaS</span><span>Mobil Uygulama</span><span>Cloudflare Edge</span><span>DevOps</span><span>API Entegrasyonu</span><span>Yapay Zekâ</span><span>Teknik SEO</span><span>UI / UX</span><span>Masaüstü</span><span>Blog &amp; Haber</span>
+        </div>
+      </div>
+
+      <!-- ===== SERVICES (pinned horizontal) ===== -->
+      <section class="services" id="hizmetler" data-section="hizmetler">
+        <div class="services__pin" id="services-pin">
+          <div class="services__head container">
+            <div>
+              <p class="eyebrow" data-reveal>01 — Hizmetler</p>
+              <h2 class="h2" data-reveal data-split>13 uçtan uca mühendislik alanı. Tek ekip.</h2>
+            </div>
+            <p class="lead" data-reveal>
+              Arayüzü, uygulamayı, veriyi ve altyapıyı birlikte tasarlıyoruz. İhtiyacınızı anlıyor, sistemin
+              tamamında uyumlu ve yüksek performanslı çözümler geliştiriyoruz.
+            </p>
+          </div>
+          <div class="services__track" id="services-track">
+            <!-- cards injected by JS -->
+          </div>
+          <div class="services__progress"><span id="services-progress"></span></div>
+        </div>
+      </section>
+
+      <!-- ===== APPROACH (layer peel) ===== -->
+      <section class="approach" id="yaklasim" data-section="yaklasim">
+        <div class="container approach__grid">
+          <div class="approach__copy">
+            <p class="eyebrow" data-reveal>02 — Yaklaşımımız</p>
+            <h2 class="h2" data-reveal data-split>Üç katman, tek mimari.</h2>
+            <p class="lead" data-reveal>
+              İyi bir dijital ürün yalnızca güzel görünmez; hızlı çalışır, kullanıcıyı anlar ve işinizle birlikte
+              büyür. Bu yüzden deneyimi, iş mantığını ve altyapıyı ayrı ayrı değil, birlikte tasarlıyoruz.
+            </p>
+            <ul class="approach__list" id="approach-list">
+              <li class="is-active" data-layer="0"><b>Deneyim Katmanı</b><span>UI/UX, web ve mobil — hızlı, erişilebilir, kullanıcı odaklı arayüzler.</span></li>
+              <li data-layer="1"><b>Uygulama &amp; İş Mantığı</b><span>Özel yazılım, API'ler, otomasyon; sipariş, üyelik, yönetim paneli, ödeme ve üçüncü parti bağlantılar.</span></li>
+              <li data-layer="2"><b>Edge &amp; Bulut Altyapısı</b><span>Cloudflare, CDN, WAF ve DevOps; trafik büyümesi, güvenlik ve küresel performans için tasarlanmış altyapı.</span></li>
+            </ul>
+          </div>
+          <div class="approach__stage" id="approach-stage">
+            <div class="layer layer--0">
+              <header><span>L1</span> Deneyim</header>
+              <div class="layer__ui">
+                <i></i><i></i><i></i>
+                <div class="layer__ui-row"><b></b><b></b></div>
+                <div class="layer__ui-row"><b></b><b></b><b></b></div>
+              </div>
+            </div>
+            <div class="layer layer--1">
+              <header><span>L2</span> Uygulama</header>
+              <pre class="layer__code"><code><span class="k">export</span> <span class="f">async</span> handler(req) {
+  <span class="k">const</span> order = <span class="k">await</span> db.orders.create(req.body)
+  <span class="k">await</span> payments.charge(order)
+  <span class="k">return</span> json({ ok: <span class="b">true</span>, id: order.id })
+}</code></pre>
+            </div>
+            <div class="layer layer--2">
+              <header><span>L3</span> Edge &amp; Bulut</header>
+              <div class="layer__edge">
+                <div class="layer__globe"><i></i><i></i><i></i></div>
+                <ul>
+                  <li><em>WAF</em> L3/L7 koruma aktif</li>
+                  <li><em>CDN</em> 300+ edge noktası</li>
+                  <li><em>TTFB</em> &lt; 25 ms</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== PROCESS (path draw) ===== -->
+      <section class="process" id="surec" data-section="surec">
+        <div class="container">
+          <p class="eyebrow" data-reveal>03 — Süreç</p>
+          <h2 class="h2" data-reveal data-split>Fikirden yayına, net bir yol.</h2>
+        </div>
+        <div class="process__path container">
+          <svg class="process__svg" viewBox="0 0 1200 520" preserveAspectRatio="none" aria-hidden="true">
+            <path id="process-line-bg" d="M110 80 C 300 80, 300 440, 480 440 S 700 80, 900 80 S 1090 440, 1090 440" />
+            <path id="process-line" d="M110 80 C 300 80, 300 440, 480 440 S 700 80, 900 80 S 1090 440, 1090 440" />
+          </svg>
+          <ol class="process__steps" id="process-steps">
+            <li style="--x: 9%; --y: 15%"><b>01</b><strong>Dinliyoruz</strong><span>Hedefleri, kullanıcıları ve iş akışlarını anlıyoruz.</span></li>
+            <li style="--x: 22%; --y: 56%"><b>02</b><strong>Planlıyoruz</strong><span>Kapsamı, öncelikleri ve çözüm mimarisini netleştiriyoruz.</span></li>
+            <li style="--x: 40%; --y: 84%"><b>03</b><strong>Tasarlıyoruz</strong><span>İçeriği ve arayüzleri kullanılabilir bir deneyime dönüştürüyoruz.</span></li>
+            <li style="--x: 58%; --y: 40%"><b>04</b><strong>Geliştiriyoruz</strong><span>Ürünü inşa ediyor, entegrasyonları bağlıyor ve test ediyoruz.</span></li>
+            <li style="--x: 75%; --y: 15%"><b>05</b><strong>Yayınlıyoruz</strong><span>Kontrolleri tamamlayıp sistemi yayına alıyoruz.</span></li>
+            <li style="--x: 91%; --y: 84%"><b>06</b><strong>İyileştiriyoruz</strong><span>Kullanımdan öğreniyor, yeni ihtiyaçlara yanıt veriyoruz.</span></li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- ===== WORK MODELS ===== -->
+      <section class="models" id="modeller" data-section="modeller">
+        <div class="container">
+          <p class="eyebrow" data-reveal>04 — Çalışma modelleri</p>
+          <h2 class="h2" data-reveal data-split>Kapsama göre, net teklif.</h2>
+          <p class="lead" data-reveal>
+            Sabit paket yerine ihtiyacınıza göre şekillenen üç model. İlk görüşmeden sonra net bir kapsam ve
+            teklif paylaşıyoruz.
+          </p>
+          <div class="models__grid" id="models-grid">
+            <article class="model" data-tilt>
+              <header>
+                <span class="model__tag">Web Varlığı</span>
+                <h3>Yeni dijital kimlik ya da kurumsal site yenileme</h3>
+                <p class="model__price">Kapsama göre teklif<small>Hızlı teslim planı</small></p>
+              </header>
+              <ul>
+                <li>Responsive, özel UI/UX tasarım</li>
+                <li>İçerik / blog yönetimi</li>
+                <li>Teknik SEO, schema ve hız optimizasyonu</li>
+                <li>Cloudflare CDN &amp; SSL</li>
+                <li>WhatsApp, form ve harita entegrasyonları</li>
+              </ul>
+              <a class="btn btn--ghost" href="#iletisim" data-konu="Web varlığı"><span>Teklif iste</span></a>
+            </article>
+            <article class="model model--featured" data-tilt>
+              <span class="model__badge">En çok tercih edilen</span>
+              <header>
+                <span class="model__tag">Dijital Ürün &amp; Platform</span>
+                <h3>E-ticaret, SaaS, müşteri portalı ya da web + mobil uygulama</h3>
+                <p class="model__price">Aşamalı proje planı<small>Uçtan uca üretim</small></p>
+              </header>
+              <ul>
+                <li>Kullanıcı akışları, prototip ve tasarım sistemi</li>
+                <li>Özel yazılım, yönetim paneli ve veritabanı</li>
+                <li>Ödeme, kargo, muhasebe ve API entegrasyonları</li>
+                <li>Yüksek trafik için Cloudflare + sunucu mimarisi</li>
+                <li>Yayın sonrası izleme ve öncelikli destek</li>
+              </ul>
+              <a class="btn btn--primary" href="#iletisim" data-konu="Dijital ürün"><span>Proje konuşalım</span></a>
+            </article>
+            <article class="model" data-tilt>
+              <header>
+                <span class="model__tag">Teknik Geliştirme</span>
+                <h3>Mevcut siteyi iyileştirme, API, Cloudflare ya da AI otomasyonu</h3>
+                <p class="model__price">Odaklı mühendislik<small>Mevcut sisteme uyumlu</small></p>
+              </header>
+              <ul>
+                <li>Kod ve sunucu darboğaz analizi</li>
+                <li>Cloudflare CDN, WAF ve DDoS koruması</li>
+                <li>Core Web Vitals &amp; teknik SEO iyileştirmeleri</li>
+                <li>ERP / CRM / API entegrasyonları</li>
+                <li>Yapay zekâ destekli süreç otomasyonu</li>
+              </ul>
+              <a class="btn btn--ghost" href="#iletisim" data-konu="Teknik geliştirme"><span>Analiz iste</span></a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== TESTIMONIALS ===== -->
+      <section class="reviews" id="yorumlar" data-section="yorumlar">
+        <div class="container reviews__head">
+          <p class="eyebrow" data-reveal>05 — Müşteri yorumları</p>
+          <h2 class="h2" data-reveal data-split>Bionluk üzerinden doğrulanmış deneyimler.</h2>
+          <div class="reviews__score" data-reveal>
+            <b>4,9</b>
+            <div>
+              <div class="stars">★★★★★</div>
+              <span>11 doğrulanmış sipariş değerlendirmesi · %100 zamanında teslim</span>
+            </div>
+          </div>
+        </div>
+        <div class="reviews__rows" id="reviews-rows"><!-- injected --></div>
+      </section>
+
+      <!-- ===== FAQ ===== -->
+      <section class="faq" id="sss" data-section="sss">
+        <div class="container faq__grid">
+          <div>
+            <p class="eyebrow" data-reveal>06 — Sık sorulanlar</p>
+            <h2 class="h2" data-reveal data-split>Merak ettikleriniz.</h2>
+          </div>
+          <div class="faq__list" id="faq-list">
+            <details data-reveal>
+              <summary>Proje fiyatı nasıl belirleniyor?<i></i></summary>
+              <div class="faq__body"><p>Kapsam, tasarım ihtiyacı, entegrasyonlar ve teslim planı birlikte değerlendirilir. İlk görüşmeden sonra net bir kapsam ve teklif paylaşırız.</p></div>
+            </details>
+            <details data-reveal>
+              <summary>Sadece mevcut sitemi geliştirebilir misiniz?<i></i></summary>
+              <div class="faq__body"><p>Evet. Mevcut altyapıyı inceliyor; yenileme ya da aşamalı iyileştirme seçeneklerini birlikte değerlendiriyoruz.</p></div>
+            </details>
+            <details data-reveal>
+              <summary>Yayından sonra destek sağlıyor musunuz?<i></i></summary>
+              <div class="faq__body"><p>Bakım, izleme ve geliştirme; projeye uygun, devam eden bir planla sürdürülebilir.</p></div>
+            </details>
+            <details data-reveal>
+              <summary>Hangi teknolojilerle çalışıyorsunuz?<i></i></summary>
+              <div class="faq__body"><p>Cloudflare Edge, modern web çatıları, Node.js, TypeScript, PostgreSQL, native iOS/Android ve LLM tabanlı otomasyon araçları. Teknolojiyi projeye göre seçiyoruz.</p></div>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== CTA + CONTACT ===== -->
+      <section class="cta" id="iletisim" data-section="iletisim">
+        <div class="container cta__inner">
+          <p class="eyebrow" data-reveal>07 — İletişim &amp; teklif</p>
+          <h2 class="cta__title" id="cta-title">
+            <span class="line">Bir sonraki fikri</span>
+            <span class="line"><em>birlikte</em> inşa edelim.</span>
+          </h2>
+          <p class="lead" data-reveal>
+            Ücretsiz teknik keşif ve mimari planlama görüşmesi. 7/24 bulut izleme, WAF güvenlik katmanı ve
+            %100 teknik SEO garantisiyle.
+          </p>
+          <div class="cta__actions" data-reveal>
+            <a class="btn btn--primary btn--lg magnetic" href="https://wa.me/905528219623" target="_blank" rel="noopener">
+              <span>WhatsApp'tan yazın</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+            </a>
+            <a class="btn btn--ghost btn--lg magnetic" href="mailto:info@roelcloud.com"><span>info@roelcloud.com</span></a>
+          </div>
+          <ul class="cta__chips" data-reveal>
+            <li>Ücretsiz keşif görüşmesi</li>
+            <li>%100 Teknik SEO garantisi</li>
+            <li>7/24 bulut izleme</li>
+            <li>WAF güvenlik katmanı</li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer__grid">
+        <div class="footer__brand">
+          <span class="footer__logo">Roel<em>Cloud</em></span>
+          <p>Dijital ürünler · Yazılım · Altyapı</p>
+          <p class="footer__muted">Arayüzden sunucu sınırına kadar sistemin tamamını birlikte tasarlıyoruz.</p>
+        </div>
+        <div>
+          <h4>Keşfet</h4>
+          <a href="#hizmetler">Hizmetler</a>
+          <a href="#yaklasim">Yaklaşımımız</a>
+          <a href="#modeller">Çalışma modelleri</a>
+          <a href="#yorumlar">Müşteri yorumları</a>
+          <a href="#sss">Sık sorulanlar</a>
+        </div>
+        <div>
+          <h4>Hizmetler</h4>
+          <a href="#hizmetler">Web sitesi ve kurumsal web</a>
+          <a href="#hizmetler">E-ticaret çözümleri</a>
+          <a href="#hizmetler">Özel yazılım geliştirme</a>
+          <a href="#hizmetler">Platform ve SaaS</a>
+          <a href="#hizmetler">Mobil uygulama</a>
+          <a href="#hizmetler">Cloudflare ve CDN</a>
+          <a href="#hizmetler">AI ve otomasyon</a>
+          <a href="#hizmetler">Teknik SEO</a>
+        </div>
+        <div>
+          <h4>İletişim</h4>
+          <a href="https://wa.me/905528219623" target="_blank" rel="noopener">WhatsApp · +90 552 821 96 23</a>
+          <a href="mailto:info@roelcloud.com">info@roelcloud.com</a>
+          <a href="#iletisim">İletişim &amp; teklif</a>
+        </div>
+      </div>
+      <div class="container footer__bottom">
+        <span>© 2026 Roel Cloud</span>
+        <span><a href="/gizlilik-politikasi/">Gizlilik</a> · <a href="/kullanim-sartlari/">Kullanım şartları</a></span>
+      </div>
+    </footer>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
