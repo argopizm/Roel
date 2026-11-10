@@ -1,0 +1,15 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "ege-elektrik",
+  "main": "src/worker.js",
+  "compatibility_date": "2025-10-01",
+  "workers_dev": true,
+  "assets": {
+    "directory": "public",
+    "binding": "ASSETS",
+    "run_worker_first": ["/", "/api/*", "/media/*"]
+  },
+  // Site içeriği, form mesajları ve admin'den yüklenen görseller bu KV'de tutulur.
+  // İlk deploy'da wrangler, id verilmezse KV'yi otomatik oluşturur.
+  "kv_namespaces": [{ "binding": "SITE" }]
+}

@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Yönetim Paneli</title>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/admin/admin.css?v=1">
+</head>
+<body>
+<section id="login" class="login" hidden>
+  <form id="login-form" class="card login-card">
+    <div class="brand">⚡ Yönetim Paneli</div>
+    <label>Şifre<input type="password" name="password" autocomplete="current-password" required autofocus></label>
+    <button class="btn primary" type="submit">Giriş Yap</button>
+    <p class="err" id="login-err"></p>
+  </form>
+</section>
+
+<section id="app" hidden>
+  <header class="bar">
+    <div class="brand">⚡ Yönetim</div>
+    <a class="btn ghost sm" href="/" target="_blank" rel="noopener">Siteyi Gör</a>
+    <button class="btn ghost sm" id="logout">Çıkış</button>
+  </header>
+  <nav class="tabs" id="tabs">
+    <button data-tab="genel" class="on">Genel</button>
+    <button data-tab="hizmetler">Hizmetler</button>
+    <button data-tab="ozellikler">Özellikler</button>
+    <button data-tab="bolgeler">Bölgeler</button>
+    <button data-tab="seo">SEO</button>
+    <button data-tab="mesajlar">Mesajlar <span id="msg-count" class="badge"></span></button>
+  </nav>
+  <main class="main">
+    <div class="tab" data-pane="genel"></div>
+    <div class="tab" data-pane="hizmetler" hidden></div>
+    <div class="tab" data-pane="ozellikler" hidden></div>
+    <div class="tab" data-pane="bolgeler" hidden></div>
+    <div class="tab" data-pane="seo" hidden></div>
+    <div class="tab" data-pane="mesajlar" hidden></div>
+  </main>
+  <footer class="savebar" id="savebar">
+    <span id="dirty">Kaydedilmemiş değişiklikler var</span>
+    <button class="btn primary" id="save">Kaydet</button>
+  </footer>
+</section>
+<div class="toast" id="toast"></div>
+<script src="/admin/admin.js?v=1" type="module"></script>
+</body>
+</html>
